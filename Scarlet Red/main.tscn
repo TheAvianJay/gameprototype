@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx6iqdnri3clr"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_vvrme"]
+[ext_resource type="PackedScene" uid="uid://cgrh15wbtul0w" path="res://tile_map.tscn" id="2_os4j7"]
+[ext_resource type="PackedScene" uid="uid://dtavqx3u6muo3" path="res://scarlet_red.tscn" id="3_yiee3"]
+[ext_resource type="PackedScene" uid="uid://dirqk85ilsuya" path="res://enemy.tscn" id="4_0c5jh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d4hh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83pm7"]
+size = Vector2(897.319, 253.5)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_vvrme")
+
+[node name="TileMap" parent="." instance=ExtResource("2_os4j7")]
+position = Vector2(103, 17)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_d4hh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
+position = Vector2(575.948, 510.25)
+shape = SubResource("RectangleShape2D_83pm7")
+
+[node name="Enemy" parent="." instance=ExtResource("4_0c5jh")]
+position = Vector2(626, 159)
+
+[node name="scarlet_red" parent="." instance=ExtResource("3_yiee3")]
+position = Vector2(439, 179)
+disable_mode = 1
+mass = 10.0
+inertia = 1.0
+gravity_scale = 3.0
+lock_rotation = true

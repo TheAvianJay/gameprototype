@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtavqx3u6muo3"]
+
+[ext_resource type="Texture2D" uid="uid://bdslrrfjm65it" path="res://art/placeholder_scarlet.png" id="1_mycn0"]
+[ext_resource type="Script" path="res://scarlet_red.gd" id="1_rsrnc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xnab6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mycn0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7o53"]
+size = Vector2(45, 135)
+
+[node name="scarlet_red" type="RigidBody2D"]
+can_sleep = false
+script = ExtResource("1_rsrnc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.437428, -0.593674)
+scale = Vector2(0.149421, 0.287447)
+sprite_frames = SubResource("SpriteFrames_xnab6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.374928, -0.687675)
+shape = SubResource("RectangleShape2D_d7o53")
